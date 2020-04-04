@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :cookpod, Cookpod.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "cookpod",
+  password: "cookpod",
   database: "cookpod_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
