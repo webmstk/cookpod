@@ -1,0 +1,33 @@
+name: Phoenix CI
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres:12
+        env:
+          POSTGRES_USER: cookpod
+          POSTGRES_PASSWORD: cookpod
+          POSTGRES_DB: cookpod_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-elixir@v1
+        with:
+          otp-version: 22.3
+          elixir-version: 1.10.2
+      - run: mix deps.get
+      - run: mix format --check-formatted
+      - run: mix credo
+      - run: mix dialyzer
+      - run: mix test
