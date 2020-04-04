@@ -26,8 +26,11 @@ jobs:
         with:
           otp-version: 22.3
           elixir-version: 1.10.2
+        env:
+          CODECOV_TOKEN: 99300763-a7fc-45f9-98e8-bb2baee4294e
       - run: mix deps.get
       - run: mix format --check-formatted
       - run: mix credo
       - run: mix dialyzer
       - run: mix test
+      - run: bash <(curl -s https://codecov.io/bash)
