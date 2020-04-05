@@ -5,6 +5,11 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      DB_USER: cookpod
+      DB_PASSWORD: cookpod
+      DB_NAME: cookpod
+      DB_HOST: localhost
 
     services:
       db:
@@ -12,7 +17,6 @@ jobs:
         env:
           POSTGRES_USER: cookpod
           POSTGRES_PASSWORD: cookpod
-          POSTGRES_DB: cookpod_test
         ports: ['5432:5432']
         options: >-
           --health-cmd pg_isready
@@ -26,12 +30,17 @@ jobs:
         with:
           otp-version: 22.3
           elixir-version: 1.10.2
-        env:
-          CODECOV_TOKEN: 99300763-a7fc-45f9-98e8-bb2baee4294e
+
       - run: mix deps.get
       - run: mix format --check-formatted
       - run: mix credo
       - run: mix dialyzer
       - run: mix test
-      - run: MIX_ENV=test mix do compile --warnings-as-errors, coveralls.json
+
+      - run: mix do compile --warnings-as-errors, coveralls.json
+        env:
+          MIX_ENV: test
+
       - run: bash <(curl -s https://codecov.io/bash)
+        env:
+          CODECOV_TOKEN: 99300763-a7fc-45f9-98e8-bb2baee4294e
