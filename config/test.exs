@@ -2,10 +2,10 @@ use Mix.Config
 
 # Configure your database
 config :cookpod, Cookpod.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "cookpod_test",
-  hostname: "localhost",
+  username: System.get_env("DB_USER", "postgres"),
+  password: System.get_env("DB_PASSWORD", "postgres"),
+  database: System.get_env("DB_NAME", "cookpod") <> "_test",
+  hostname: System.get_env("DB_HOST", "localhost"),
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
