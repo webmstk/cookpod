@@ -1,0 +1,29 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here as no
+## effect: edit them in PO (.po) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-format
+#: lib/cookpod_web/templates/layout/app.html.slime:1
+#: lib/cookpod_web/templates/page/terms.html.slime:1
+msgid "Условия"
+msgstr ""
+
+#, elixir-format
+#: lib/cookpod_web/templates/layout/app.html.slime:1
+#: lib/cookpod_web/templates/layout/app.html.slime:1 lib/cookpod_web/templates/page/index.html.slime:1
+#: lib/cookpod_web/templates/page/index.html.slime:3
+msgid "Cookpod"
+msgstr ""
+
+#, elixir-format
+#: lib/cookpod_web/templates/page/index.html.slime:1
+msgid "Добро пожаловать на сайт %{project_name}! Здесь пока... ничего"
+msgstr ""

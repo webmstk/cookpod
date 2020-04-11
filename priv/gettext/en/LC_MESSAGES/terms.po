@@ -1,0 +1,22 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/cookpod_web/templates/page/terms.html.slime:1
+msgid "Вам крупно повезло! Начиная с %{date} пользоваться сервисом можно ну абсолютно бесплатно. Но если хотите, то можете заплатить, конечно."
+msgstr "You are lucky! Service is free from %{date}. You still can  pay if you want to."
+
+#, elixir-format
+#: lib/cookpod_web/templates/page/terms.html.slime:1
+msgid "Пользуйтесь на здоровье"
+msgstr "Feel free to use service"
