@@ -8,18 +8,15 @@ html lang="en"
     link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/app.css")}"
 
   body
-    header
-      section.container
-        nav role="navigation"
-          ul
-            li
-              a href="https://hexdocs.pm/phoenix/overview.html" Get Started
-        a.phx-logo href="http://phoenixframework.org/"
-          img src="#{ Routes.static_path(@conn, "/images/phoenix.png") }" alt="Phoenix Framework Logo"
+    .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.box-shadow
+      h5.my-0.mr-md-auto.font-weight-normal Cookpod
 
-    main.container role="main"
-      p.alert.alert-info role="alert"= get_flash(@conn, :info)
-      p.alert.alert-danger role="alert"= get_flash(@conn, :error)
+    .container
+      = if get_flash(@conn, :info) do
+        p.alert.alert-info role="alert"= get_flash(@conn, :info)
+      = if get_flash(@conn, :error) do
+        p.alert.alert-danger role="alert"= get_flash(@conn, :error)
+
       = render @view_module, @view_template, assigns
 
     script type="text/javascript" src="#{Routes.static_path(@conn, "/js/app.js")}"
