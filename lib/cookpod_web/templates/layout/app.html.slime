@@ -1,0 +1,29 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta content="width=device-width, initial-scale=1" name="viewport"
+    title Cookpod · Phoenix Framework
+    link rel="stylesheet" href="#{Routes.static_path(@conn, "/css/app.css")}"
+
+  body
+    .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.box-shadow
+      = if Routes.page_path(@conn, :index) == @conn.request_path do
+        h5.my-0.mr-md-auto.font-weight-normal = gettext "Cookpod"
+      - else
+        = link to: Routes.page_path(@conn, :index), class: "mr-md-auto" do
+          h5.my-0.font-weight-normal = gettext "Cookpod"
+
+      nav.my-2.my-md-0.mr-md-3
+        = link gettext("Условия"), to: Routes.page_path(@conn, :terms)
+
+    .container
+      = if get_flash(@conn, :info) do
+        p.alert.alert-info role="alert"= get_flash(@conn, :info)
+      = if get_flash(@conn, :error) do
+        p.alert.alert-danger role="alert"= get_flash(@conn, :error)
+
+      = render @view_module, @view_template, assigns
+
+    script type="text/javascript" src="#{Routes.static_path(@conn, "/js/app.js")}"

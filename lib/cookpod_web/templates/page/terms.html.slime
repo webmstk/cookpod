@@ -1,0 +1,9 @@
+.px-3.py-3.pt-md-5.pb-md-4.mx-auto.text-center
+  h1.display-4 = gettext "Условия"
+  p.lead = dgettext "terms", "Пользуйтесь на здоровье"
+
+p
+  = dgettext "terms", \
+"Вам крупно повезло! Начиная с %{date} пользоваться сервисом можно \
+ну абсолютно бесплатно. Но если хотите, то можете заплатить, конечно.",
+    date: format_terms_date(@date)

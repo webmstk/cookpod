@@ -1,0 +1,30 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-format
+#: lib/cookpod_web/templates/layout/app.html.slime:1
+#: lib/cookpod_web/templates/page/terms.html.slime:1
+msgid "Условия"
+msgstr "Terms"
+
+#, elixir-format
+#: lib/cookpod_web/templates/layout/app.html.slime:1
+#: lib/cookpod_web/templates/layout/app.html.slime:1 lib/cookpod_web/templates/page/index.html.slime:1
+#: lib/cookpod_web/templates/page/index.html.slime:3
+msgid "Cookpod"
+msgstr "Cookpod"
+
+#, elixir-format
+#: lib/cookpod_web/templates/page/index.html.slime:1
+msgid "Добро пожаловать на сайт %{project_name}! Здесь пока... ничего"
+msgstr "Welcome to the %{project_name} project! It is empty for now"

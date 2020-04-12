@@ -1,0 +1,7 @@
+.px-3.py-3.pt-md-5.pb-md-4.mx-auto.text-center
+  h1.display-4 = gettext "Cookpod"
+  p.lead
+    = gettext \
+      "Добро пожаловать на сайт %{project_name}! Здесь пока... ничего",
+      project_name: gettext("Cookpod")
+
