@@ -21,7 +21,7 @@ config :cookpod, CookpodWeb.Endpoint,
 config :cookpod,
        CookpodWeb.Gettext,
        default_locale: "ru",
-       locales: ~w(ru, en)
+       locales: ~w(ru en)
 
 # Configures Elixir's Logger
 config :logger, :console,
