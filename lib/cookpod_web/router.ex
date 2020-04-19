@@ -9,6 +9,7 @@ defmodule CookpodWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :current_user
+    plug BasicAuth, use_config: {:phoenix, :basic_auth}
   end
 
   pipeline :protected do
