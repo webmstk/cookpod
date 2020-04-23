@@ -1,0 +1,14 @@
+.mt-4
+  = form_for :user, Routes.session_path(@conn, :create), fn form ->
+    .form-group.row
+      = label(form, :name, gettext("Имя"), class: "col-sm-1 col-form-label")
+      .col-sm-4
+        = text_input(form, :name, class: form_input_class("name", @errors), placeholder: "penetrator3000")
+        .invalid-feedback = @errors["name"]
+    .form-group.row
+      = label(form, :password, gettext("Пароль"), class: "col-sm-1 col-from-label")
+      .col-sm-4
+        = text_input(form, :password, class: form_input_class("password", @errors), placeholder: "******", type: "password")
+        .invalid-feedback = @errors["password"]
+    .form-group
+      = submit(gettext("Вход"), class: "btn btn-primary")

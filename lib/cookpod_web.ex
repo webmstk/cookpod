@@ -39,6 +39,7 @@ defmodule CookpodWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      import CookpodWeb.AppHelpers
       import CookpodWeb.ErrorHelpers
       import CookpodWeb.Gettext
       alias CookpodWeb.Router.Helpers, as: Routes

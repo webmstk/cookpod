@@ -15,6 +15,7 @@ defmodule CookpodWeb.ConnCase do
   this option is not recommended for other databases.
   """
 
+  import Plug.Conn, only: [put_req_header: 3]
   use ExUnit.CaseTemplate
 
   using do
@@ -35,6 +36,18 @@ defmodule CookpodWeb.ConnCase do
       Ecto.Adapters.SQL.Sandbox.mode(Cookpod.Repo, {:shared, self()})
     end
 
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
+    conn =
+      Phoenix.ConnTest.build_conn()
+      |> using_basic_auth
+
+    {:ok, conn: conn}
+  end
+
+  defp using_basic_auth(conn) do
+    username = Application.get_env(:phoenix, :basic_auth)[:username]
+    password = Application.get_env(:phoenix, :basic_auth)[:password]
+
+    header_content = "Basic " <> Base.encode64("#{username}:#{password}")
+    conn |> put_req_header("authorization", header_content)
   end
 end

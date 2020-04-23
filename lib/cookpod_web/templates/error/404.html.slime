@@ -1,0 +1,2 @@
+h1.display-4 Not found
+= link(gettext("Пойдите на главную"), to: Routes.page_path(@conn, :index))

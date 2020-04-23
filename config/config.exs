@@ -21,7 +21,7 @@ config :cookpod, CookpodWeb.Endpoint,
 config :cookpod,
        CookpodWeb.Gettext,
        default_locale: "ru",
-       locales: ~w(ru, en)
+       locales: ~w(ru en)
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -35,6 +35,13 @@ config :phoenix, :json_library, Jason
 config :phoenix, :template_engines,
   slim: PhoenixSlime.Engine,
   slime: PhoenixSlime.Engine
+
+config :phoenix,
+  basic_auth: [
+    username: System.get_env("BASIC_AUTH_USERNAME", "admin"),
+    password: System.get_env("BASIC_AUTH_PASSWORD", "admin"),
+    realm: "Need auth"
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
