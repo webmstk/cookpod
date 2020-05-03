@@ -9,3 +9,6 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+changeset = Cookpod.User.changeset(%Cookpod.User{}, %{email: "test@test.ru", password: "test"})
+Cookpod.Repo.insert!(changeset)

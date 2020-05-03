@@ -19,7 +19,7 @@ html lang="en"
         = link gettext("Условия"), to: Routes.page_path(@conn, :terms)
 
       = if @current_user do
-        span.mx-3 = @current_user
+        span.mx-3 = @current_user.email
         = link gettext("Выйти"), to: Routes.session_path(@conn, :delete), method: :delete, class: "btn btn-outline-primary"
       - else
         = link gettext("Вход"), to: Routes.session_path(@conn, :new), class: login_button_class(current_page?(@conn, :session, :new))

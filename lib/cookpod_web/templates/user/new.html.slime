@@ -1,0 +1,24 @@
+.mt-4
+  = form_for @changeset, Routes.user_path(@conn, :create), fn form ->
+    .form-group.row
+      = label(form, :email, gettext("Почта"), class: "col-sm-2 col-form-label")
+      .col-sm-4
+        = text_input(form, :email, class: form_control(form, :email), placeholder: "ivan@mail.ru")
+        = error_tag(form, :email)
+
+    .form-group.row
+      = label(form, :password, gettext("Пароль"), class: "col-sm-2 col-from-label")
+      .col-sm-4
+        = text_input(form, :password, class: form_control(form, :password), placeholder: "******", type: "password")
+        = error_tag(form, :password)
+
+    .form-group.row
+      = label(form, :password_confirmation, gettext("Подтвердите пароль"), class: "col-sm-2 col-from-label")
+      .col-sm-4
+        = text_input(form, :password_confirmation, class: form_control(form, :password_confirmation), placeholder: "******", type: "password")
+        = error_tag(form, :password_confirmation)
+
+    .form-group
+      = submit(gettext("Регистрация"), class: "btn btn-primary")
+
+= link gettext("Вход"), to: Routes.session_path(@conn, :new)
