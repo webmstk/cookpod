@@ -25,7 +25,10 @@ defmodule CookpodWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/sessions", SessionController, singleton: true
+    get "/sign_in", SessionController, :new
+    get "/sign_up", UserController, :new
+    resources "/sessions", SessionController, singleton: true, only: [:create, :delete]
+    resources "/users", UserController, only: [:create]
   end
 
   scope "/", CookpodWeb do
@@ -53,6 +56,10 @@ defmodule CookpodWeb.Router do
     send_resp(conn, :bad_request, "Bad request")
   end
 
+  defp handle_error(conn, _) do
+    conn
+  end
+
   defp with_layout(conn) do
     conn
     |> fetch_session
@@ -62,6 +69,18 @@ defmodule CookpodWeb.Router do
   end
 
   defp current_user(conn, _) do
-    assign(conn, :current_user, get_session(conn, :current_user))
+    case get_session(conn, :user_id) do
+      nil ->
+        assign(conn, :current_user, nil)
+
+      user_id ->
+        case Cookpod.Repo.get(Cookpod.User, user_id) do
+          nil ->
+            delete_session(conn, :user_id)
+
+          user ->
+            assign(conn, :current_user, user)
+        end
+    end
   end
 end
