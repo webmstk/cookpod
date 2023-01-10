@@ -9,7 +9,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.0",
     "phoenix": "^1.5.1",
-    "phoenix_html": "^2.14.2",
+    "phoenix_html": "^3.0.4",
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
